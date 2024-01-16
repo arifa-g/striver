@@ -1,0 +1,12 @@
+Form Smallest Number From Two Digit Arrays
+whatsappImg Leetcode easy time complexity:o(n)
+
+class Solution:
+    def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
+        common=set(nums1)&set(nums2)
+        if common:
+            return min(common)
+        heapq.heapify(nums1)
+        heapq.heapify(nums2)
+        x,y=heapq.heappop(nums1),heapq.heappop(nums2)
+        return min(10*x+y,10*y+x)
